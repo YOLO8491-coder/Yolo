@@ -1,0 +1,1139 @@
+<title>幼學記錄</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap">
+
+<style>
+/* ── DESIGN TOKENS ─────────────────────── */
+:root {
+  --bg:         #EDEEF1;
+  --surface:    #FFFFFF;
+  --surface-2:  #F4F5F7;
+  --border:     #E0E2E8;
+  --text-1:     #1B2B38;
+  --text-2:     #556070;
+  --text-3:     #8C9BAA;
+
+  --teal:       #2C7D6E;
+  --teal-lt:    #EBF5F3;
+  --teal-dk:    #1D3430;
+  --amber:      #C07800;
+  --amber-lt:   #FFF4DC;
+  --danger:     #C0392B;
+  --success:    #27AE60;
+
+  --d-body:     #3D90A8;
+  --d-cog:      #6B5DD3;
+  --d-lang:     #3DA06C;
+  --d-social:   #D4762A;
+  --d-emotion:  #C4473A;
+  --d-aesth:    #9E6388;
+
+  --sidebar-w:  224px;
+  --topbar-h:   54px;
+  --r:          10px;
+  --r-sm:       6px;
+  --sh:         0 2px 8px rgba(0,0,0,.08);
+  --sh-sm:      0 1px 3px rgba(0,0,0,.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #0F1A18;
+    --surface:   #192825;
+    --surface-2: #1F3330;
+    --border:    #2A3F3C;
+    --text-1:    #DEE9E7;
+    --text-2:    #7CA8A0;
+    --text-3:    #4E6E68;
+    --teal:      #38A88E;
+    --teal-lt:   #162A27;
+    --teal-dk:   #0A1412;
+    --amber:     #E09A10;
+    --amber-lt:  #221E08;
+    --sh:        0 2px 8px rgba(0,0,0,.35);
+    --sh-sm:     0 1px 3px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"] {
+  --bg:        #0F1A18;
+  --surface:   #192825;
+  --surface-2: #1F3330;
+  --border:    #2A3F3C;
+  --text-1:    #DEE9E7;
+  --text-2:    #7CA8A0;
+  --text-3:    #4E6E68;
+  --teal:      #38A88E;
+  --teal-lt:   #162A27;
+  --teal-dk:   #0A1412;
+  --amber:     #E09A10;
+  --amber-lt:  #221E08;
+  --sh:        0 2px 8px rgba(0,0,0,.35);
+  --sh-sm:     0 1px 3px rgba(0,0,0,.25);
+}
+
+/* ── RESET ─────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC',system-ui,sans-serif;background:var(--bg);color:var(--text-1);min-height:100vh;line-height:1.6}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+input,textarea,select{font-family:inherit}
+a{text-decoration:none;color:inherit}
+
+/* ── LOGIN ─────────────────────────────── */
+.login-bg{
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;width:100%;
+  background:linear-gradient(135deg,#1D3430 0%,#2D5248 50%,#1A3832 100%);
+}
+.login-card{
+  background:var(--surface);border-radius:16px;
+  padding:40px;width:380px;max-width:90vw;
+  box-shadow:0 24px 64px rgba(0,0,0,.3);
+}
+.login-logo{text-align:center;margin-bottom:28px}
+.login-icon{
+  width:60px;height:60px;border-radius:16px;
+  background:linear-gradient(135deg,var(--teal),#45A890);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:28px;margin-bottom:14px;box-shadow:0 4px 16px rgba(44,125,110,.35);
+}
+.login-logo h1{font-size:22px;font-weight:700;color:var(--text-1);letter-spacing:-.02em}
+.login-logo p{font-size:13px;color:var(--text-3);margin-top:5px}
+.fgroup{margin-bottom:16px}
+.fgroup label{display:block;font-size:12px;font-weight:600;color:var(--text-2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.fgroup input{
+  width:100%;padding:10px 14px;border:1.5px solid var(--border);
+  border-radius:var(--r-sm);font-size:14px;color:var(--text-1);
+  background:var(--surface);outline:none;transition:border-color .15s;
+}
+.fgroup input:focus{border-color:var(--teal)}
+.btn-login{
+  width:100%;padding:12px;background:var(--teal);
+  color:#fff;border-radius:var(--r-sm);font-size:15px;font-weight:600;
+  transition:background .15s;margin-top:4px;letter-spacing:.01em;
+}
+.btn-login:hover{background:#25695C}
+.login-hint{font-size:12px;color:var(--text-3);text-align:center;margin-top:16px}
+
+/* ── SHELL ─────────────────────────────── */
+.shell{display:flex;min-height:100vh}
+
+/* Sidebar */
+.sidebar{
+  width:var(--sidebar-w);background:var(--teal-dk);
+  display:flex;flex-direction:column;
+  position:fixed;top:0;left:0;height:100vh;z-index:100;
+}
+.sb-top{padding:18px 14px 14px;border-bottom:1px solid rgba(255,255,255,.07)}
+.sb-logo{display:flex;align-items:center;gap:10px}
+.sb-logo-icon{
+  width:34px;height:34px;border-radius:8px;
+  background:linear-gradient(135deg,var(--teal),#45A890);
+  display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;
+}
+.sb-logo-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.sb-logo-sub{font-size:11px;color:rgba(255,255,255,.38);margin-top:1px}
+
+.sb-class{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.07)}
+.sb-class-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.3);margin-bottom:3px}
+.sb-class-name{font-size:13.5px;font-weight:600;color:rgba(255,255,255,.88)}
+.sb-class-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:1px}
+
+.sb-nav{flex:1;padding:10px 8px;overflow-y:auto}
+.sb-sec{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.28);padding:10px 8px 3px}
+.nav-btn{
+  display:flex;align-items:center;gap:9px;
+  padding:9px 10px;border-radius:8px;
+  color:rgba(255,255,255,.5);font-size:13.5px;
+  cursor:pointer;transition:all .15s;margin-bottom:1px;width:100%;text-align:left;
+}
+.nav-btn:hover{color:rgba(255,255,255,.85);background:rgba(255,255,255,.07)}
+.nav-btn.active{color:#fff;background:rgba(255,255,255,.13);font-weight:500}
+.nav-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
+.nav-badge{
+  margin-left:auto;background:var(--amber);
+  color:#fff;font-size:10px;font-weight:700;
+  padding:1px 6px;border-radius:20px;
+}
+
+.sb-footer{padding:12px 14px;border-top:1px solid rgba(255,255,255,.07)}
+.sb-teacher{display:flex;align-items:center;gap:10px}
+.sb-avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--teal);display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:#fff;flex-shrink:0;
+}
+.sb-tname{font-size:13px;font-weight:500;color:rgba(255,255,255,.8)}
+.sb-trole{font-size:11px;color:rgba(255,255,255,.38)}
+
+/* Main */
+.main{margin-left:var(--sidebar-w);flex:1;display:flex;flex-direction:column}
+.topbar{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:0 24px;height:var(--topbar-h);
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:50;box-shadow:var(--sh-sm);
+}
+.topbar-title{font-size:15px;font-weight:600}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.topbar-date{font-size:12.5px;color:var(--text-3)}
+.topbar-theme{
+  width:32px;height:32px;border-radius:var(--r-sm);
+  background:var(--surface-2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:15px;
+  cursor:pointer;transition:background .15s;
+}
+.topbar-theme:hover{background:var(--teal-lt)}
+.content{padding:24px;flex:1}
+
+/* ── PAGE ELEMENTS ─────────────────────── */
+.pg-hdr{margin-bottom:22px}
+.pg-hdr h2{font-size:19px;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+.pg-hdr p{font-size:13.5px;color:var(--text-2);margin-top:4px}
+
+/* Cards */
+.card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh-sm);overflow:hidden}
+.card-hdr{padding:13px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card-hdr h3{font-size:13.5px;font-weight:600}
+.card-body{padding:18px}
+
+/* Stats */
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:22px}
+.stat-box{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:16px 18px;box-shadow:var(--sh-sm)}
+.stat-lbl{font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em}
+.stat-val{font-size:26px;font-weight:700;color:var(--text-1);margin-top:3px;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.stat-sub{font-size:12px;color:var(--text-3);margin-top:2px}
+.stat-ok{color:var(--success)}
+.stat-warn{color:var(--amber)}
+
+/* Two-col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+/* Domain pill */
+.dpill{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:2px 8px;border-radius:20px;
+  font-size:10.5px;font-weight:700;color:#fff;
+  letter-spacing:.02em;flex-shrink:0;
+}
+
+/* Lesson cards */
+.lesson-list{display:flex;flex-direction:column;gap:10px}
+.lesson-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 16px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--sh-sm);
+  cursor:pointer;transition:border-color .15s;
+}
+.lesson-item:hover{border-color:var(--teal)}
+.lesson-date{
+  font-size:11px;font-weight:600;color:var(--text-3);
+  text-align:center;min-width:32px;padding-top:2px;
+  font-variant-numeric:tabular-nums;
+}
+.lesson-body{flex:1;min-width:0}
+.lesson-body h4{font-size:14px;font-weight:600}
+.lesson-body p{font-size:12.5px;color:var(--text-2);margin-top:3px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lesson-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+.lesson-status{
+  flex-shrink:0;font-size:11px;font-weight:600;padding:3px 8px;
+  border-radius:20px;align-self:flex-start;
+}
+.status-done{background:#E8F6EE;color:#27AE60}
+.status-plan{background:var(--amber-lt);color:var(--amber)}
+
+/* Indicator selector */
+.domain-group{margin-bottom:18px}
+.domain-group-hdr{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;color:var(--text-2);margin-bottom:8px;
+}
+.ind-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.ind-chip{
+  border:1.5px solid var(--border);border-radius:var(--r-sm);
+  padding:8px 10px;cursor:pointer;transition:all .15s;background:var(--surface);
+}
+.ind-chip:hover{border-color:var(--teal);background:var(--teal-lt)}
+.ind-chip.sel{border-color:var(--teal);background:var(--teal-lt)}
+.ind-code{font-size:10.5px;font-weight:700;color:var(--teal);font-variant-numeric:tabular-nums}
+.ind-text{font-size:11.5px;color:var(--text-2);margin-top:2px;line-height:1.4}
+.ind-chip.sel .ind-code{color:var(--teal)}
+
+/* Children grid */
+.child-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px}
+.child-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:16px 10px 14px;
+  text-align:center;cursor:pointer;
+  transition:box-shadow .15s,border-color .15s;box-shadow:var(--sh-sm);
+}
+.child-card:hover{border-color:var(--teal);box-shadow:var(--sh)}
+.child-av{
+  width:46px;height:46px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:17px;font-weight:700;color:#fff;margin-bottom:8px;
+}
+.child-name{font-size:14px;font-weight:600}
+.child-cnt{font-size:11.5px;color:var(--text-3);margin-top:2px}
+.child-dots{display:flex;justify-content:center;gap:3px;margin-top:7px;flex-wrap:wrap}
+.cdot{width:8px;height:8px;border-radius:50%;display:inline-block}
+
+/* Upload zone */
+.upload-zone{
+  border:2px dashed var(--border);border-radius:var(--r);
+  padding:32px 20px;text-align:center;cursor:pointer;
+  transition:all .2s;background:var(--surface-2);
+}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--teal);background:var(--teal-lt)}
+.upload-icon{font-size:36px;margin-bottom:12px;display:block}
+.upload-text{font-size:14px;color:var(--text-2);font-weight:500}
+.upload-sub{font-size:12px;color:var(--text-3);margin-top:5px}
+
+/* Records */
+.rec-list{display:flex;flex-direction:column;gap:9px}
+.rec-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 14px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--r-sm);
+}
+.rec-thumb{
+  width:44px;height:44px;border-radius:8px;
+  background:var(--surface-2);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+}
+.rec-meta{flex:1;min-width:0}
+.rec-meta h4{font-size:13px;font-weight:600}
+.rec-meta p{font-size:12px;color:var(--text-2);margin-top:2px;line-height:1.5}
+.rec-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.rtag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;color:#fff}
+.rec-time{font-size:11px;color:var(--text-3);flex-shrink:0;padding-top:2px;font-variant-numeric:tabular-nums}
+
+/* Feedback */
+.msg-item{padding:14px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-sm);margin-bottom:9px}
+.msg-hdr{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.msg-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.msg-sender{font-size:13px;font-weight:600}
+.msg-time{font-size:11px;color:var(--text-3);margin-left:auto}
+.msg-txt{font-size:13.5px;color:var(--text-2);line-height:1.65}
+.msg-photo-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--teal);font-weight:500;margin-top:7px;background:var(--teal-lt);padding:3px 8px;border-radius:20px}
+
+/* Report */
+.report-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.report-row:last-child{border:none}
+.report-domain{width:100px;font-size:13px;font-weight:600;color:var(--text-1);display:flex;align-items:center;gap:7px}
+.report-bar-wrap{flex:1;height:8px;background:var(--surface-2);border-radius:4px;overflow:hidden}
+.report-bar{height:100%;border-radius:4px;transition:width .6s cubic-bezier(.25,.46,.45,.94)}
+.report-pct{font-size:12px;font-weight:600;color:var(--text-2);min-width:34px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* Child detail */
+.child-detail-hdr{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.cd-av{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#fff;flex-shrink:0}
+.cd-name{font-size:18px;font-weight:700}
+.cd-sub{font-size:13px;color:var(--text-2);margin-top:2px}
+.btn-back{font-size:13px;color:var(--text-2);display:flex;align-items:center;gap:5px;margin-bottom:16px;padding:5px 0;cursor:pointer;width:fit-content}
+.btn-back:hover{color:var(--teal)}
+
+/* Buttons */
+.btn-sm{padding:7px 14px;border-radius:var(--r-sm);font-size:13px;font-weight:500}
+.btn-outline{border:1.5px solid var(--border);color:var(--text-1);background:var(--surface);transition:all .15s}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-lt)}
+.btn-solid{background:var(--teal);color:#fff;transition:background .15s}
+.btn-solid:hover{background:#25695C}
+.btn-icon{width:30px;height:30px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:15px;background:var(--surface-2);border:1px solid var(--border);cursor:pointer;transition:background .15s}
+.btn-icon:hover{background:var(--teal-lt)}
+
+/* Form */
+.f-label{display:block;font-size:11.5px;font-weight:600;color:var(--text-2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
+.f-input{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:14px;color:var(--text-1);background:var(--surface);outline:none;transition:border-color .15s}
+.f-input:focus{border-color:var(--teal)}
+.f-textarea{resize:vertical;min-height:80px;line-height:1.6}
+.f-row{margin-bottom:14px}
+
+/* Tabs */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:20px}
+.tab-btn{padding:10px 15px;font-size:13px;font-weight:500;color:var(--text-2);border-bottom:2px solid transparent;cursor:pointer;transition:all .15s}
+.tab-btn:hover{color:var(--text-1)}
+.tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
+
+/* Upload processing overlay */
+.processing-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--amber-lt);color:var(--amber);
+  font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinning{display:inline-block;animation:spin 1s linear infinite}
+
+/* Radar SVG — handled in JS */
+
+/* ── RESPONSIVE ────────────────────────── */
+@media(max-width:768px){
+  .sidebar{transform:translateX(-100%);transition:transform .25s}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .two-col,.three-col{grid-template-columns:1fr}
+  .ind-grid{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:repeat(2,1fr)}
+  .child-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .stat-row{grid-template-columns:1fr 1fr}
+  .child-grid{grid-template-columns:repeat(2,1fr)}
+  .content{padding:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+
+<div id="app"></div>
+
+<script>
+/* ── DATA ────────────────────────────── */
+const TEACHER = {name:'陳雅玲',class:'快樂班',school:'陽光幼兒園',grade:'大班（5-6歲）',av:'陳'};
+
+const DOM = {
+  '身':{name:'身體動作與健康',color:'#3D90A8',bg:'#EEF6FA'},
+  '認':{name:'認知',color:'#6B5DD3',bg:'#F0EEFC'},
+  '語':{name:'語文',color:'#3DA06C',bg:'#EDF8F2'},
+  '社':{name:'社會',color:'#D4762A',bg:'#FDF2EA'},
+  '情':{name:'情緒',color:'#C4473A',bg:'#FDECEA'},
+  '美':{name:'美感',color:'#9E6388',bg:'#F9EEF5'},
+};
+
+const INDICATORS = [
+  {id:'身-大-1-1-1',d:'身',text:'在移動性動作中展現平衡與協調'},
+  {id:'身-大-2-1-1',d:'身',text:'安全地使用各種器具進行活動'},
+  {id:'身-大-3-1-1',d:'身',text:'認識身體各部位的功能'},
+  {id:'認-大-1-1-1',d:'認',text:'觀察自然現象的規律與變化'},
+  {id:'認-大-2-1-1',d:'認',text:'依照特徵為物品進行分類'},
+  {id:'認-大-3-1-1',d:'認',text:'與他人合作解決生活問題'},
+  {id:'語-大-1-1-1',d:'語',text:'理解敘述性語句描繪的訊息'},
+  {id:'語-大-2-2-1',d:'語',text:'說出對圖像的聯想與感受'},
+  {id:'語-大-2-3-1',d:'語',text:'敘說時加入個人觀點或感受'},
+  {id:'社-大-1-1-1',d:'社',text:'認識自己的特徵、喜好與長處'},
+  {id:'社-大-2-3-1',d:'社',text:'理解生活環境中文化的多元'},
+  {id:'社-大-3-3-2',d:'社',text:'與他人共同訂定並遵守規則'},
+  {id:'情-大-1-1-1',d:'情',text:'覺察自己情緒的變化'},
+  {id:'情-大-2-1-1',d:'情',text:'合宜地表達基本情緒'},
+  {id:'情-大-4-1-1',d:'情',text:'運用策略調節自己的情緒'},
+  {id:'美-大-1-1-1',d:'美',text:'探索自然環境中事物的美'},
+  {id:'美-大-2-2-1',d:'美',text:'運用視覺藝術素材與工具創作'},
+  {id:'美-大-3-1-1',d:'美',text:'欣賞並回應藝術創作或展演'},
+];
+
+const CHILDREN = [
+  {id:1,name:'小明',ch:'明',color:'#3D90A8',rec:5,doms:['身','認','語']},
+  {id:2,name:'小晴',ch:'晴',color:'#6B5DD3',rec:7,doms:['語','社','情','美']},
+  {id:3,name:'阿豪',ch:'豪',color:'#3DA06C',rec:4,doms:['身','認']},
+  {id:4,name:'小恩',ch:'恩',color:'#D4762A',rec:6,doms:['社','情','美']},
+  {id:5,name:'阿哲',ch:'哲',color:'#C4473A',rec:3,doms:['認','語']},
+  {id:6,name:'小芸',ch:'芸',color:'#9E6388',rec:8,doms:['身','語','社','美']},
+  {id:7,name:'小凱',ch:'凱',color:'#2C7D6E',rec:4,doms:['身','認','情']},
+  {id:8,name:'小雨',ch:'雨',color:'#8B6914',rec:5,doms:['語','社','美']},
+];
+
+const LESSONS = [
+  {id:1,date:'09/13',title:'我的家',
+   desc:'透過圖書共讀與積木搭建，引導幼兒描述自己的家庭結構與居住環境，培養空間感知能力。',
+   inds:['語-大-1-1-1','語-大-2-3-1','認-大-2-1-1','社-大-1-1-1','美-大-2-2-1'],status:'done'},
+  {id:2,date:'09/14',title:'家人的工作',
+   desc:'透過角色扮演認識不同職業，培養對家人付出的感謝心，並發展語言表達能力。',
+   inds:['社-大-1-1-1','社-大-2-3-1','情-大-2-1-1','語-大-2-2-1'],status:'plan'},
+  {id:3,date:'09/15',title:'我能幫忙家事',
+   desc:'帶領幼兒學習簡單家務技能，培養生活自理能力與責任感，並理解分工合作的意義。',
+   inds:['身-大-2-1-1','社-大-3-3-2','情-大-1-1-1'],status:'plan'},
+];
+
+const RECORDS = [
+  {id:1,cid:1,emoji:'📸',title:'積木搭建記錄',desc:'小明今日搭建了三層高的積木房子，展現對空間結構的掌握，並能描述各層用途。',inds:['認-大-2-1-1','美-大-2-2-1'],time:'09:45'},
+  {id:2,cid:2,emoji:'📝',title:'語言觀察記錄',desc:'小晴能清楚說出家中成員的工作，語句組織完整，主動回應同學問題。',inds:['語-大-2-3-1','社-大-1-1-1'],time:'10:20'},
+  {id:3,cid:4,emoji:'🎨',title:'全家人圖畫作品',desc:'小恩畫出包含爸媽祖父母的全家福，並能描述每位家人的特徵與情感。',inds:['社-大-1-1-1','美-大-2-2-1','語-大-2-2-1'],time:'11:00'},
+  {id:4,cid:6,emoji:'🎬',title:'角色扮演影片',desc:'小芸在角色扮演中主動擔任媽媽角色，展現豐富情境想像力與同理心。',inds:['語-大-2-3-1','情-大-2-1-1','社-大-2-3-1'],time:'14:30'},
+  {id:5,cid:3,emoji:'📝',title:'情緒觀察記錄',desc:'阿豪分享家庭故事時眼神發光，但在小組討論中較為安靜，需要更多鼓勵。',inds:['情-大-1-1-1','語-大-2-2-1'],time:'15:10'},
+];
+
+const FEEDBACK = [
+  {id:1,parent:'明媽媽',cname:'小明',av:'媽',color:'#3D90A8',time:'昨晚 21:32',
+   txt:'今天回家小明一直跟我說搭積木的事，還說想再去幼兒園！謝謝老師設計這麼有趣的課程 🏠',photo:true},
+  {id:2,parent:'晴爸爸',cname:'小晴',av:'爸',color:'#6B5DD3',time:'昨晚 20:15',
+   txt:'小晴晚餐時主動說要幫忙擺碗筷，說是學校今天說要幫忙做家事。謝謝老師的啟發！',photo:false},
+  {id:3,parent:'芸媽媽',cname:'小芸',av:'媽',color:'#9E6388',time:'今天 08:50',
+   txt:'附上昨晚小芸在家畫的全家人圖，她說要送給老師看 😊 請問課程教案有電子版嗎？方便在家延伸活動。',photo:true},
+];
+
+/* ── STATE ───────────────────────────── */
+let S = {
+  view: 'login',
+  child: null,
+  selInds: new Set(['語-大-1-1-1','語-大-2-3-1','認-大-2-1-1','社-大-1-1-1','美-大-2-2-1']),
+  recs: [...RECORDS],
+  uploading: false,
+  uploadDone: false,
+  tab: 0,
+  dark: false,
+  genComment: null,
+  genLoading: false,
+};
+
+const TITLES = {dashboard:'今日總覽',curriculum:'課程規劃',records:'孩子記錄',feedback:'家長回饋',report:'評鑑報告'};
+
+/* ── HELPERS ────────────────────────── */
+const $ = id => document.getElementById(id);
+const h = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function pill(d,txt){return `<span class="dpill" style="background:${DOM[d].color}">${txt||d}</span>`}
+function rtag(d){return `<span class="rtag" style="background:${DOM[d].color}">${d}</span>`}
+function indDom(id){const m=INDICATORS.find(x=>x.id===id);return m?m.d:''}
+
+/* Coverage calculation */
+function coverage(){
+  const all={};
+  Object.keys(DOM).forEach(d=>{
+    const total=INDICATORS.filter(x=>x.d===d).length;
+    const coveredInds=new Set([...S.recs.flatMap(r=>r.inds),...[...S.selInds]]);
+    const done=INDICATORS.filter(x=>x.d===d&&coveredInds.has(x.id)).length;
+    all[d]=Math.round(done/total*100);
+  });
+  return all;
+}
+
+/* Radar SVG */
+function radar(cov){
+  const cx=160,cy=155,mr=110;
+  const keys=['身','認','語','社','情','美'];
+  const angs=keys.map((_,i)=>(-90+i*60)*Math.PI/180);
+  const levels=[20,40,60,80,100];
+
+  const grid=levels.map(p=>{
+    const r=p/100*mr;
+    const pts=angs.map(a=>`${cx+r*Math.cos(a)},${cy+r*Math.sin(a)}`).join(' ');
+    return `<polygon points="${pts}" fill="none" stroke="var(--border)" stroke-width="1"/>`;
+  }).join('');
+
+  const axes=angs.map(a=>`<line x1="${cx}" y1="${cy}" x2="${cx+mr*Math.cos(a)}" y2="${cy+mr*Math.sin(a)}" stroke="var(--border)" stroke-width="1"/>`).join('');
+
+  const datapts=keys.map((d,i)=>{const r=cov[d]/100*mr;return `${cx+r*Math.cos(angs[i])},${cy+r*Math.sin(angs[i])}`}).join(' ');
+
+  const dots=keys.map((d,i)=>{
+    const r=cov[d]/100*mr;
+    return `<circle cx="${cx+r*Math.cos(angs[i])}" cy="${cy+r*Math.sin(angs[i])}" r="4" fill="${DOM[d].color}" stroke="var(--surface)" stroke-width="1.5"/>`;
+  }).join('');
+
+  const lbls=keys.map((d,i)=>{
+    const r=mr+26;const x=cx+r*Math.cos(angs[i]);const y=cy+r*Math.sin(angs[i]);
+    return `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="700" fill="${DOM[d].color}" font-family="Noto Sans TC,sans-serif">${d}</text>`;
+  }).join('');
+
+  const pctlbls=levels.filter((_,i)=>i===4).map(p=>{
+    const r=p/100*mr;
+    return `<text x="${cx}" y="${cy-r-5}" text-anchor="middle" font-size="9" fill="var(--text-3)" font-family="Noto Sans TC,sans-serif">${p}%</text>`;
+  }).join('');
+
+  return `<svg width="320" height="310" viewBox="0 0 320 310" style="max-width:100%;height:auto">
+    ${grid}${axes}
+    <polygon points="${datapts}" fill="rgba(44,125,110,.18)" stroke="#2C7D6E" stroke-width="2" stroke-linejoin="round"/>
+    ${dots}${lbls}${pctlbls}
+  </svg>`;
+}
+
+/* ── VIEWS ───────────────────────────── */
+
+/* LOGIN */
+function vLogin(){
+  return `<div class="login-bg">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="login-icon">🌱</div>
+      <h1>幼學記錄</h1>
+      <p>幼兒園課程記錄與課綱評量系統</p>
+    </div>
+    <div class="fgroup">
+      <label>教師帳號</label>
+      <input type="text" id="li-user" value="陳雅玲老師" placeholder="請輸入帳號"/>
+    </div>
+    <div class="fgroup">
+      <label>密碼</label>
+      <input type="password" id="li-pw" value="••••••••" placeholder="請輸入密碼"/>
+    </div>
+    <button class="btn-login" onclick="doLogin()">登入系統</button>
+    <p class="login-hint">示範帳號：任意輸入即可登入 🌿</p>
+  </div>
+</div>`;
+}
+
+/* SHELL */
+function vShell(inner){
+  const cov=coverage();
+  const navs=[
+    {id:'dashboard',icon:'🏠',label:'今日總覽'},
+    {id:'curriculum',icon:'📋',label:'課程規劃'},
+    {id:'records',icon:'📁',label:'孩子記錄'},
+    {id:'feedback',icon:'💬',label:'家長回饋',badge:3},
+    {id:'report',icon:'📊',label:'評鑑報告'},
+  ];
+  return `
+<div class="shell">
+  <nav class="sidebar" id="sidebar">
+    <div class="sb-top">
+      <div class="sb-logo">
+        <div class="sb-logo-icon">🌱</div>
+        <div>
+          <div class="sb-logo-name">幼學記錄</div>
+          <div class="sb-logo-sub">${TEACHER.school}</div>
+        </div>
+      </div>
+    </div>
+    <div class="sb-class">
+      <div class="sb-class-lbl">目前班級</div>
+      <div class="sb-class-name">${TEACHER.class}</div>
+      <div class="sb-class-sub">${TEACHER.grade}・8位幼兒</div>
+    </div>
+    <div class="sb-nav">
+      <div class="sb-sec">功能選單</div>
+      ${navs.map(n=>`
+        <button class="nav-btn${S.view===n.id?' active':''}" onclick="go('${n.id}')">
+          <span class="nav-icon">${n.icon}</span>${n.label}
+          ${n.badge?`<span class="nav-badge">${n.badge}</span>`:''}
+        </button>`).join('')}
+    </div>
+    <div class="sb-footer">
+      <div class="sb-teacher">
+        <div class="sb-avatar">${TEACHER.av}</div>
+        <div>
+          <div class="sb-tname">${TEACHER.name}</div>
+          <div class="sb-trole">班級導師</div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main">
+    <header class="topbar">
+      <span class="topbar-title">${TITLES[S.view]}</span>
+      <div class="topbar-right">
+        <span class="topbar-date">2026年9月13日（週日）</span>
+        <button class="topbar-theme" onclick="toggleTheme()" title="切換主題">
+          ${S.dark?'☀️':'🌙'}
+        </button>
+      </div>
+    </header>
+    <div class="content">${inner}</div>
+  </div>
+</div>`;
+}
+
+/* DASHBOARD */
+function vDashboard(){
+  return `
+<div class="pg-hdr">
+  <h2>今日的快樂班 🌱</h2>
+  <p>2026 年 9 月 13 日 ・ 主題課程：<strong>我的家</strong></p>
+</div>
+
+<div class="stat-row">
+  <div class="stat-box">
+    <div class="stat-lbl">今日記錄</div>
+    <div class="stat-val">${S.recs.length}</div>
+    <div class="stat-sub">已建立記錄筆數</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-lbl">孩子數</div>
+    <div class="stat-val">8</div>
+    <div class="stat-sub">快樂班在籍幼兒</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-lbl">家長回饋</div>
+    <div class="stat-val stat-warn">3</div>
+    <div class="stat-sub">待查看訊息</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-lbl">課綱覆蓋</div>
+    <div class="stat-val stat-ok">${Math.round(Object.values(coverage()).reduce((a,b)=>a+b,0)/6)}%</div>
+    <div class="stat-sub">六大領域平均達成</div>
+  </div>
+</div>
+
+<div class="two-col">
+  <div>
+    <div class="card">
+      <div class="card-hdr">
+        <h3>📋 本週課程安排</h3>
+        <button class="btn-sm btn-outline" onclick="go('curriculum')">編輯</button>
+      </div>
+      <div class="card-body">
+        <div class="lesson-list">
+          ${LESSONS.map(l=>`
+          <div class="lesson-item" onclick="go('curriculum')">
+            <div class="lesson-date">${l.date}<br><span style="font-size:9px;color:var(--text-3)">${l.status==='done'?'完成':'待執行'}</span></div>
+            <div class="lesson-body">
+              <h4>${l.title}</h4>
+              <p>${l.desc}</p>
+              <div class="lesson-tags">
+                ${[...new Set(l.inds.map(i=>i[0]))].map(d=>pill(d)).join('')}
+              </div>
+            </div>
+            <span class="lesson-status ${l.status==='done'?'status-done':'status-plan'}">${l.status==='done'?'已完成':'待執行'}</span>
+          </div>`).join('')}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <div class="card">
+      <div class="card-hdr">
+        <h3>📁 最新記錄</h3>
+        <button class="btn-sm btn-outline" onclick="go('records')">全部</button>
+      </div>
+      <div class="card-body">
+        <div class="rec-list">
+          ${S.recs.slice(0,3).map(r=>{
+            const child=CHILDREN.find(c=>c.id===r.cid);
+            return `<div class="rec-item">
+              <div class="rec-thumb">${r.emoji}</div>
+              <div class="rec-meta">
+                <h4>${r.title} <span style="font-size:11px;font-weight:400;color:var(--text-3)">・${child.name}</span></h4>
+                <p>${r.desc.slice(0,40)}…</p>
+                <div class="rec-tags">${r.inds.map(i=>rtag(i[0])).join('')}</div>
+              </div>
+              <div class="rec-time">${r.time}</div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-hdr"><h3>💬 家長最新回饋</h3></div>
+      <div class="card-body">
+        ${FEEDBACK.slice(0,2).map(f=>`
+        <div class="msg-item" style="margin-bottom:9px">
+          <div class="msg-hdr">
+            <div class="msg-av" style="background:${f.color}">${f.av}</div>
+            <div>
+              <div class="msg-sender">${f.parent}・${f.cname}</div>
+              <div style="font-size:11px;color:var(--text-3)">${f.time}</div>
+            </div>
+            ${f.photo?`<div class="msg-photo-badge" style="margin-left:auto">📷 附圖</div>`:''}
+          </div>
+          <div class="msg-txt">${f.txt.slice(0,60)}…</div>
+        </div>`).join('')}
+        <button class="btn-sm btn-outline" style="width:100%;margin-top:4px" onclick="go('feedback')">查看全部回饋</button>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
+/* CURRICULUM */
+function vCurriculum(){
+  const lesson=LESSONS[0];
+  return `
+<div class="pg-hdr">
+  <h2>課程規劃</h2>
+  <p>設計每日活動並對應幼兒園教保活動課程大綱（2016年修訂版）</p>
+</div>
+
+<div class="two-col">
+  <div style="display:flex;flex-direction:column;gap:18px">
+    <div class="card">
+      <div class="card-hdr"><h3>✏️ 今日教案・我的家</h3></div>
+      <div class="card-body">
+        <div class="f-row">
+          <label class="f-label">課程主題</label>
+          <input class="f-input" value="我的家" />
+        </div>
+        <div class="f-row">
+          <label class="f-label">課程目標</label>
+          <textarea class="f-input f-textarea">引導幼兒描述自己的家庭結構與居住環境，透過圖書共讀與積木搭建培養空間感知能力，並促進語言表達與社會認知發展。</textarea>
+        </div>
+        <div class="f-row">
+          <label class="f-label">活動流程</label>
+          <textarea class="f-input f-textarea" style="min-height:100px">一、引起動機（10分鐘）：分享家的圖片，引導幼兒說說自己的家
+二、發展活動（25分鐘）：圖書共讀《我愛我的家》，積木搭建活動
+三、綜合活動（10分鐘）：分享作品，說說「我家有什麼」</textarea>
+        </div>
+        <div class="f-row">
+          <label class="f-label">素材準備</label>
+          <input class="f-input" value="繪本、積木組、圖畫紙、蠟筆、拍照記錄設備" />
+        </div>
+        <div style="display:flex;gap:8px;margin-top:4px">
+          <button class="btn-sm btn-solid" onclick="alert('✅ 教案已儲存！')">儲存教案</button>
+          <button class="btn-sm btn-outline">列印教案</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="card" style="position:sticky;top:calc(var(--topbar-h) + 16px)">
+      <div class="card-hdr">
+        <h3>📌 對應課綱指標</h3>
+        <span style="font-size:12px;color:var(--text-3)">已選 ${S.selInds.size} 項</span>
+      </div>
+      <div class="card-body" style="max-height:calc(100vh - 220px);overflow-y:auto">
+        ${Object.keys(DOM).map(d=>`
+        <div class="domain-group">
+          <div class="domain-group-hdr">
+            ${pill(d,d+' '+DOM[d].name)}
+          </div>
+          <div class="ind-grid">
+            ${INDICATORS.filter(i=>i.d===d).map(i=>`
+            <div class="ind-chip${S.selInds.has(i.id)?' sel':''}" onclick="toggleInd('${i.id}')">
+              <div class="ind-code">${i.id}</div>
+              <div class="ind-text">${i.text}</div>
+            </div>`).join('')}
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
+/* RECORDS */
+function vRecords(){
+  if(S.child!==null){
+    const child=CHILDREN.find(c=>c.id===S.child);
+    const recs=S.recs.filter(r=>r.cid===S.child);
+    return `
+<button class="btn-back" onclick="S.child=null;render()">← 返回孩子列表</button>
+<div class="child-detail-hdr">
+  <div class="cd-av" style="background:${child.color}">${child.ch}</div>
+  <div>
+    <div class="cd-name">${child.name}</div>
+    <div class="cd-sub">共 ${recs.length} 筆記錄・${child.doms.map(d=>DOM[d].name.slice(0,2)).join('、')}</div>
+  </div>
+  <button class="btn-sm btn-solid" style="margin-left:auto" onclick="startUpload()">＋ 上傳記錄</button>
+</div>
+
+${vUploadZone()}
+
+<div class="card" style="margin-top:18px">
+  <div class="card-hdr"><h3>📁 ${child.name}的所有記錄</h3></div>
+  <div class="card-body">
+    <div class="rec-list">
+      ${recs.map(r=>`
+      <div class="rec-item">
+        <div class="rec-thumb">${r.emoji}</div>
+        <div class="rec-meta">
+          <h4>${r.title}</h4>
+          <p>${r.desc}</p>
+          <div class="rec-tags">${r.inds.map(i=>`<span class="rtag" style="background:${DOM[i[0]].color}">${i}</span>`).join('')}</div>
+        </div>
+        <div class="rec-time">${r.time}</div>
+      </div>`).join('')}
+      ${recs.length===0?`<p style="color:var(--text-3);font-size:13px;text-align:center;padding:20px">尚未有記錄，請點上方上傳記錄</p>`:''}
+    </div>
+  </div>
+</div>`;
+  }
+
+  return `
+<div class="pg-hdr">
+  <h2>孩子記錄</h2>
+  <p>點選孩子查看記錄，或上傳新的作品與觀察筆記，系統自動對應課綱指標</p>
+</div>
+
+<div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+  <button class="btn-sm btn-solid" onclick="S.child=1;render()">＋ 新增記錄</button>
+  <button class="btn-sm btn-outline">篩選領域</button>
+  <button class="btn-sm btn-outline">匯出記錄</button>
+</div>
+
+<div class="child-grid">
+  ${CHILDREN.map(c=>`
+  <div class="child-card" onclick="S.child=${c.id};render()">
+    <div class="child-av" style="background:${c.color}">${c.ch}</div>
+    <div class="child-name">${c.name}</div>
+    <div class="child-cnt">${c.rec} 筆記錄</div>
+    <div class="child-dots">
+      ${c.doms.map(d=>`<span class="cdot" style="background:${DOM[d].color}" title="${DOM[d].name}"></span>`).join('')}
+    </div>
+  </div>`).join('')}
+</div>
+
+<div class="card" style="margin-top:22px">
+  <div class="card-hdr"><h3>📋 今日所有記錄</h3></div>
+  <div class="card-body">
+    <div class="rec-list">
+      ${S.recs.map(r=>{
+        const child=CHILDREN.find(c=>c.id===r.cid);
+        return `<div class="rec-item">
+          <div class="rec-thumb">${r.emoji}</div>
+          <div class="rec-meta">
+            <h4>${r.title} <span style="font-size:11px;font-weight:400;color:var(--text-3)">・${child.name}</span></h4>
+            <p>${r.desc.slice(0,60)}…</p>
+            <div class="rec-tags">${r.inds.map(i=>`<span class="rtag" style="background:${DOM[i[0]].color}">${i}</span>`).join('')}</div>
+          </div>
+          <div class="rec-time">${r.time}</div>
+        </div>`;
+      }).join('')}
+    </div>
+  </div>
+</div>`;
+}
+
+function vUploadZone(){
+  if(S.uploading){
+    return `<div class="upload-zone" style="border-color:var(--amber);background:var(--amber-lt)">
+      <div class="upload-icon"><span class="spinning">⏳</span></div>
+      <div class="upload-text">正在分析並對應課綱指標…</div>
+      <div class="upload-sub">AI 自動辨識內容類型</div>
+    </div>`;
+  }
+  if(S.uploadDone){
+    return `<div class="card" style="border-color:var(--teal);background:var(--teal-lt)">
+      <div class="card-body">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="font-size:24px">✅</span>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:var(--teal)">上傳成功！自動標記完成</div>
+            <div style="font-size:12px;color:var(--text-2);margin-top:2px">系統依據今日課程主題「我的家」自動對應指標</div>
+          </div>
+        </div>
+        <div class="rec-item" style="background:var(--surface)">
+          <div class="rec-thumb">🎨</div>
+          <div class="rec-meta">
+            <h4>新上傳：積木建築作品</h4>
+            <p>孩子今日積木搭建作品，展現對家屋結構的理解。</p>
+            <div class="rec-tags">
+              <span class="processing-badge">🤖 自動標記</span>
+              <span class="rtag" style="background:${DOM['認'].color}">認-大-2-1-1</span>
+              <span class="rtag" style="background:${DOM['美'].color}">美-大-2-2-1</span>
+              <span class="rtag" style="background:${DOM['語'].color}">語-大-2-2-1</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:14px;border-top:1px solid var(--border);padding-top:14px">
+          <div style="font-size:12px;font-weight:600;color:var(--text-2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">🤖 AI 自動產出評語</div>
+          <div id="comment-box" style="background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-sm);padding:12px;font-size:13.5px;color:var(--text-1);line-height:1.7;min-height:60px">
+            ${S.genComment?S.genComment:`<span style="color:var(--text-3)">點擊下方按鈕，依照記錄內容自動生成學習評語</span>`}
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn-sm btn-solid" onclick="genComment()">✨ 生成評語</button>
+            <button class="btn-sm btn-outline" onclick="copyComment()">複製評語</button>
+            <button class="btn-sm btn-outline" style="margin-left:auto" onclick="S.uploadDone=false;S.genComment=null;render()">繼續上傳</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }
+  return `<div class="upload-zone" id="upzone" onclick="startUpload()">
+    <span class="upload-icon">📤</span>
+    <div class="upload-text">點擊或拖曳上傳作品・照片・影片</div>
+    <div class="upload-sub">系統將自動分析內容並對應今日課程的課綱指標</div>
+  </div>`;
+}
+
+/* FEEDBACK */
+function vFeedback(){
+  return `
+<div class="pg-hdr">
+  <h2>家長回饋</h2>
+  <p>家長傳來的訊息與照片，自動歸入對應孩子的學習檔案</p>
+</div>
+
+<div class="two-col">
+  <div>
+    <div class="tabs">
+      <button class="tab-btn${S.tab===0?' active':''}" onclick="S.tab=0;render()">全部 (3)</button>
+      <button class="tab-btn${S.tab===1?' active':''}" onclick="S.tab=1;render()">含附件 (2)</button>
+      <button class="tab-btn${S.tab===2?' active':''}" onclick="S.tab=2;render()">待回覆</button>
+    </div>
+    ${FEEDBACK.filter(f=>S.tab!==1||f.photo).map(f=>`
+    <div class="msg-item">
+      <div class="msg-hdr">
+        <div class="msg-av" style="background:${f.color}">${f.av}</div>
+        <div>
+          <div class="msg-sender">${f.parent}</div>
+          <div style="font-size:11px;color:var(--text-3)">關於：${f.cname}</div>
+        </div>
+        <div style="margin-left:auto;text-align:right">
+          <div class="msg-time">${f.time}</div>
+          ${f.photo?`<div class="msg-photo-badge" style="margin-top:4px">📷 附圖</div>`:''}
+        </div>
+      </div>
+      <div class="msg-txt">${f.txt}</div>
+      <div style="display:flex;gap:7px;margin-top:10px">
+        <button class="btn-sm btn-solid" style="font-size:12px;padding:5px 12px" onclick="alert('回覆功能開發中')">回覆</button>
+        <button class="btn-sm btn-outline" style="font-size:12px;padding:5px 12px">歸入檔案</button>
+      </div>
+    </div>`).join('')}
+  </div>
+
+  <div>
+    <div class="card">
+      <div class="card-hdr"><h3>📊 本週回饋統計</h3></div>
+      <div class="card-body">
+        ${CHILDREN.map((c,i)=>{
+          const cnt=[2,1,1,0,0,1,0,0][i];
+          return `<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border)">
+            <div class="child-av" style="width:28px;height:28px;font-size:12px;background:${c.color}">${c.ch}</div>
+            <div style="font-size:13px;flex:1">${c.name}</div>
+            <div style="font-size:12px;color:${cnt>0?'var(--teal)':'var(--text-3)'};font-weight:${cnt>0?'600':'400'}">${cnt>0?cnt+'則回饋':'尚無'}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <div class="card-hdr"><h3>📢 發送通知</h3></div>
+      <div class="card-body">
+        <div class="f-row">
+          <label class="f-label">通知內容</label>
+          <textarea class="f-input f-textarea" placeholder="輸入要傳送給家長的訊息…"></textarea>
+        </div>
+        <button class="btn-sm btn-solid" onclick="alert('通知已發送給 8 位家長')">發送給全班家長</button>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
+/* REPORT */
+function vReport(){
+  const cov=coverage();
+  const domKeys=Object.keys(DOM);
+  return `
+<div class="pg-hdr">
+  <h2>評鑑報告</h2>
+  <p>六大領域課綱指標覆蓋率統計・自動彙整・可隨時匯出</p>
+</div>
+
+<div class="two-col" style="margin-bottom:22px">
+  <div class="card">
+    <div class="card-hdr"><h3>🕸 六大領域覆蓋雷達圖</h3></div>
+    <div class="card-body" style="display:flex;justify-content:center">
+      ${radar(cov)}
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr"><h3>📊 各領域達成率</h3></div>
+    <div class="card-body">
+      ${domKeys.map(d=>`
+      <div class="report-row">
+        <div class="report-domain">
+          <span style="width:10px;height:10px;border-radius:50%;background:${DOM[d].color};display:inline-block;flex-shrink:0"></span>
+          ${d}・${DOM[d].name.slice(0,3)}
+        </div>
+        <div class="report-bar-wrap">
+          <div class="report-bar" style="width:${cov[d]}%;background:${DOM[d].color}"></div>
+        </div>
+        <div class="report-pct">${cov[d]}%</div>
+      </div>`).join('')}
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border)">
+        <div style="font-size:12px;color:var(--text-3)">整體平均覆蓋率</div>
+        <div style="font-size:24px;font-weight:700;color:var(--teal);font-variant-numeric:tabular-nums">${Math.round(Object.values(cov).reduce((a,b)=>a+b,0)/6)}%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-hdr">
+    <h3>👧 個別幼兒指標達成概況</h3>
+    <button class="btn-sm btn-outline" onclick="alert('匯出 PDF 功能開發中')">匯出 PDF</button>
+  </div>
+  <div class="card-body">
+    <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;font-size:13px">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding:8px 10px;color:var(--text-3);font-weight:600;border-bottom:1px solid var(--border);white-space:nowrap">幼兒</th>
+          ${domKeys.map(d=>`<th style="padding:8px 6px;color:${DOM[d].color};font-weight:700;border-bottom:1px solid var(--border);white-space:nowrap">${d}</th>`).join('')}
+          <th style="padding:8px 6px;color:var(--text-3);font-weight:600;border-bottom:1px solid var(--border)">記錄筆數</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${CHILDREN.map(c=>`
+        <tr>
+          <td style="padding:9px 10px;display:flex;align-items:center;gap:8px;white-space:nowrap">
+            <div class="child-av" style="width:24px;height:24px;font-size:11px;background:${c.color}">${c.ch}</div>
+            ${c.name}
+          </td>
+          ${domKeys.map(d=>`<td style="padding:9px 6px;text-align:center">
+            ${c.doms.includes(d)
+              ?`<span style="color:${DOM[d].color};font-size:14px">●</span>`
+              :`<span style="color:var(--border)">○</span>`}
+          </td>`).join('')}
+          <td style="padding:9px 6px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums">${c.rec}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:11.5px;color:var(--text-3);margin-top:12px">● 已有對應記錄　○ 尚無記錄・建議補充觀察</p>
+  </div>
+</div>`;
+}
+
+/* ── RENDER ──────────────────────────── */
+function render(){
+  const app=$('app');
+  if(S.view==='login'){app.innerHTML=vLogin();return}
+  let inner;
+  switch(S.view){
+    case 'dashboard': inner=vDashboard();break;
+    case 'curriculum': inner=vCurriculum();break;
+    case 'records': inner=vRecords();break;
+    case 'feedback': inner=vFeedback();break;
+    case 'report': inner=vReport();break;
+    default: inner=vDashboard();
+  }
+  app.innerHTML=vShell(inner);
+  if(S.dark)document.documentElement.setAttribute('data-theme','dark');
+  else document.documentElement.removeAttribute('data-theme');
+}
+
+/* ── ACTIONS ─────────────────────────── */
+function doLogin(){S.view='dashboard';render()}
+function go(v){S.view=v;S.child=null;render();window.scrollTo(0,0)}
+function toggleInd(id){
+  if(S.selInds.has(id))S.selInds.delete(id);
+  else S.selInds.add(id);
+  render();
+}
+function toggleTheme(){
+  S.dark=!S.dark;
+  if(S.dark)document.documentElement.setAttribute('data-theme','dark');
+  else document.documentElement.removeAttribute('data-theme');
+  render();
+}
+function startUpload(){
+  S.uploading=true;S.genComment=null;render();
+  setTimeout(()=>{
+    S.uploading=false;S.uploadDone=true;
+    const child=S.child||1;
+    S.recs.push({id:Date.now(),cid:child,emoji:'🎨',title:'積木建築作品（新上傳）',
+      desc:'孩子今日積木搭建作品，展現對家屋結構的理解與空間思維。',
+      inds:['認-大-2-1-1','美-大-2-2-1','語-大-2-2-1'],time:'now'});
+    render();
+  },2000);
+}
+
+const COMMENTS=[
+  '幼兒在今日「我的家」課程中，主動拿取積木嘗試搭建房屋結構，過程中能依據高低、大小做初步分類（認-大-2-1-1），並以蠟筆在作品旁添加裝飾，展現對視覺藝術素材的主動探索（美-大-2-2-1）。分享時能簡短說明自己的設計意圖，語言表達清楚流暢（語-大-2-2-1）。建議下次活動可提供更多不同形狀的積木，進一步延伸空間建構的挑戰性。',
+  '本次記錄顯示幼兒在小組合作搭建中積極參與，能與同伴討論分工，說出「我負責做門，你做屋頂」等協商語句（語-大-2-3-1）。對於作品的顏色選擇有明顯偏好，使用暖色調呈現家的溫馨感，展現豐富的美感覺察（美-大-1-1-1）。整體而言，社會互動技巧和情緒穩定性均有良好表現。',
+  '幼兒今日在作品分享環節中，能用完整句子描述自己的家，加入「因為我家有很多樹」等個人觀點（語-大-2-3-1），語言邏輯清晰。積木排列具有一定規律性，顯示認知分類能力正在發展（認-大-2-1-1）。情緒方面，分享時神情愉快，能在適當時機表達開心（情-大-2-1-1）。',
+];
+
+function genComment(){
+  const box=document.getElementById('comment-box');
+  if(!box)return;
+  box.innerHTML='<span style="color:var(--text-3)"><span class="spinning" style="display:inline-block;animation:spin 1s linear infinite">⏳</span> AI 正在分析記錄內容並生成評語…</span>';
+  setTimeout(()=>{
+    S.genComment=COMMENTS[Math.floor(Math.random()*COMMENTS.length)];
+    box.innerHTML=`<div style="font-size:13.5px;line-height:1.75;color:var(--text-1)">${S.genComment}</div>
+    <div style="margin-top:8px;font-size:11px;color:var(--text-3)">🤖 依據：今日課程主題「我的家」・已對應課綱指標自動生成</div>`;
+  },1600);
+}
+
+function copyComment(){
+  if(!S.genComment){alert('請先點擊「生成評語」');return}
+  navigator.clipboard.writeText(S.genComment).then(()=>alert('✅ 評語已複製到剪貼板！'));
+}
+
+/* ── INIT ────────────────────────────── */
+render();
+</script>
