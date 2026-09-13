@@ -462,10 +462,46 @@ const FEEDBACK = [
    txt:'附上昨晚小芸在家畫的全家人圖，她說要送給老師看 😊 請問課程教案有電子版嗎？方便在家延伸活動。',photo:true},
 ];
 
+const PROFILES = {
+  1:{
+    quote:'小明總是帶著燦爛的笑容走進教室，對積木有著特別的熱情，常常在角落安靜地專注搭建，完成後會自豪地邀請老師來欣賞。他的認真與堅持，是班上同學最好的榜樣。',
+    ana:{身:'身體動作協調良好，喜歡戶外跑跳，精細動作在積木操作中展現穩定進步，建議持續提供多元操作素材。',認:'具備良好的空間概念，能依大小、形狀分類積木，邏輯思維發展超齡，可提升挑戰難度。',語:'表達流暢，能清楚說明自己的想法，詞彙量豐富，閱讀興趣濃厚，持續共讀效果佳。',社:'與同儕互動友善，能主動分享材料，偶爾需要鼓勵參與大團體討論活動。',情:'情緒穩定，面對挫折時能短暫調整後再嘗試，情感表達直接真誠，值得肯定。',美:'對色彩和造型有獨特審美觀，作品常有個人風格，建議多提供自由創作時間。'}
+  },
+  2:{
+    quote:'小晴是班上的小故事家，說起話來生動有趣，總能把簡單的事情描述得栩栩如生。她的笑聲像陽光一樣，溫暖了班上每一個角落，也帶動了同學們參與討論的熱情。',
+    ana:{身:'大肌肉活動積極參與，舞蹈律動尤其出色，手眼協調能力良好，精細動作持續進步中。',認:'對因果關係充滿好奇，喜歡問「為什麼」，能持續探索問題，抽象思考能力發展良好。',語:'語言表達能力優異，詞彙豐富，能用完整句子描述複雜情境，是班上的語言示範者。',社:'善於觀察同伴情緒，主動關心他人，具有天然同理心，領導特質逐漸顯現。',情:'情緒豐富且表達直接，能辨識並說出自己的感受，偶爾情緒起伏較大，持續引導調節中。',美:'對音樂律動特別敏感，繪畫色彩飽滿，具有豐富的藝術感知力，值得持續培養。'}
+  },
+  3:{
+    quote:'阿豪是個安靜的觀察者，他不急著說話，卻總是在關鍵時刻說出最有深度的一句話。他細心、踏實，每一件事情都認真完成，老師很珍惜有他在班上的這份沉穩力量。',
+    ana:{身:'粗大動作表現穩定，跑跳協調良好，精細動作尚在發展中，建議多提供剪貼、串珠等練習。',認:'觀察力細膩，能注意到他人忽略的細節，分類與配對能力佳，問題解決過程謹慎周全。',語:'傾聽能力優異，理解力強，主動表達意願較低，建議在小組情境中多給予發言機會與鼓勵。',社:'與固定友伴互動自在，對陌生情境較為謹慎，正在逐步擴展社交圈，需給予耐心與時間。',情:'情緒穩定內斂，較少主動表達情感，建議透過繪本與情境討論，協助豐富情緒語彙。',美:'對自然素材特別感興趣，作品細膩有層次，喜歡獨立創作，具有安靜深思的藝術氣質。'}
+  },
+  4:{
+    quote:'小恩有一顆柔軟而敏銳的心，她總是第一個發現同學難過了、需要幫忙了。她的善良不是刻意表現出來的，而是自然而然地流露，讓老師和同學都感到溫暖。',
+    ana:{身:'身體動作靈活，喜歡創意肢體遊戲，精細動作表現良好，畫圖與剪貼作品細緻用心。',認:'具邏輯思考能力，喜歡分類與排序活動，對生活數學概念（大小、多少）掌握良好。',語:'能以生動的語言描述感受與想像，說故事時加入豐富的細節，語言表達具感染力。',社:'情感豐富，對同儕需求敏感，樂於協助他人，是班上的小小關懷天使，社會技巧成熟。',情:'情緒覺察細膩，能辨識自己與他人的情緒，調節能力良好，是情緒學習的良好示範。',美:'繪畫作品富有故事性，色彩選擇溫暖，對美的事物有自己的品味與見解，令人驚喜。'}
+  },
+  5:{
+    quote:'阿哲是個充滿創意的小發明家，腦子裡永遠有新點子。他喜歡用「不一樣的方式」做每一件事，雖然有時候讓老師措手不及，但那份不受框架限制的思維，讓人看見了他未來的無限可能。',
+    ana:{身:'動作有力但控制力仍在發展中，喜歡挑戰高難度動作，建議加強身體安全意識的引導。',認:'創意思考突出，能提出非常規的解決方案，建議提供開放性問題激發其探索潛能。',語:'喜歡用比喻和想像描述事物，語言充滿創意，書面前概念（認字、寫字）興趣正在萌芽。',社:'有強烈個人意見，正在學習與他人妥協和協商，建議透過合作遊戲建立團隊合作意識。',情:'情感強烈且直接，興奮與沮喪都表現明顯，正在學習以合適方式表達和調節情緒。',美:'作品充滿想像力與實驗精神，不拘泥於常規，每件作品都有令人意想不到的創意巧思。'}
+  },
+  6:{
+    quote:'小芸是班上的小太陽，她走到哪裡，歡笑就跟到哪裡。她對任何事情都充滿好奇和熱情，願意嘗試、願意挑戰，那份勇敢和活力，每天都為整個班級帶來滿滿的正能量。',
+    ana:{身:'體能優秀，各項大肌肉動作表現突出，平衡感與協調性佳，是體能活動中的積極參與者。',認:'學習動機強烈，對各類主題都有探究興趣，能快速吸收新知識並聯結生活經驗。',語:'口語表達流暢生動，樂於分享想法，能主動在團體中發言，帶動討論氣氛。',社:'人際關係廣泛融洽，善於招呼同伴，是天然的班級氣氛調節者，同儕評價極佳。',情:'情緒開朗積極，即使遇到困難也能很快振作，樂觀態度是班上最珍貴的感染力。',美:'對各種藝術形式都有濃厚興趣，音樂、美術、戲劇樣樣投入，創作能量豐沛充足。'}
+  },
+  7:{
+    quote:'小凱做事一向認真仔細，他不會急著完成，而是一步一步確認每個細節都做對了才往前進。這份穩健踏實的個性，讓老師非常放心，也讓他在每次的作品中都展現出超齡的完整度。',
+    ana:{身:'動作穩健有力，喜歡需要精確控制的活動，精細動作表現優異，作品完成度高且細緻。',認:'思考謹慎有條理，做決定前會先觀察，數概念與邏輯推理能力良好，解題過程完整。',語:'語言簡潔精準，說話前會思考，雖不多話但每次發言都有重量，書寫意願逐漸提升。',社:'與熟悉夥伴互動穩定，在合作任務中能承擔責任，是可信賴的小組成員。',情:'情緒調節能力佳，鮮少情緒爆發，遇到不如意時能自行冷靜，情感表達較為內斂。',美:'作品構圖嚴謹，注重細節，色彩搭配沉穩，展現出與年齡相符的美感成熟度。'}
+  },
+  8:{
+    quote:'小雨安靜如其名，她喜歡在觀察中學習，在傾聽中成長。她不急著被看見，卻總是在不經意間讓人發現她的細心與溫柔。老師相信，那份內斂的力量，會在她生命的各個時刻靜靜綻放。',
+    ana:{身:'動作輕柔協調，喜歡需要細心操作的活動，精細動作表現穩定，大肌肉活動參與度持續提升中。',認:'觀察細膩，思考深入，喜歡獨立探索，對自然與生活現象有豐富的個人詮釋。',語:'傾聽理解能力強，主動發言頻率較低，一對一情境中能展現流暢表達，建議多創造小組機會。',社:'與特定好友關係深厚，對新夥伴較需時間熱身，正在練習在更大的社群中展現自己。',情:'情緒細膩敏感，能察覺環境氛圍的變化，建議持續透過繪本和對話豐富情緒表達方式。',美:'對自然美景和細小事物特別有感，作品常捕捉到他人未注意的美麗細節，風格獨特動人。'}
+  },
+};
+
 /* ── STATE ───────────────────────────── */
 let S = {
   view: 'login',
   child: null,
+  childTab: 0,
   selInds: new Set(['語-大-1-1-1','語-大-2-3-1','認-大-2-1-1','社-大-1-1-1','美-大-2-2-1']),
   recs: [...RECORDS],
   uploading: false,
@@ -474,6 +510,8 @@ let S = {
   dark: false,
   genComment: null,
   genLoading: false,
+  editQuote: {},
+  editAna: {},
 };
 
 const TITLES = {dashboard:'今日總覽',curriculum:'課程規劃',records:'孩子記錄',feedback:'家長回饋',report:'評鑑報告'};
@@ -796,37 +834,99 @@ function vRecords(){
   if(S.child!==null){
     const child=CHILDREN.find(c=>c.id===S.child);
     const recs=S.recs.filter(r=>r.cid===S.child);
+    const prof=PROFILES[child.id];
+    const quote=S.editQuote[child.id]!==undefined?S.editQuote[child.id]:prof.quote;
+    const ana=S.editAna[child.id]||{};
+
+    const tabContent=[
+      /* Tab 0: 學習記錄 */
+      `${vUploadZone()}
+      <div class="card" style="margin-top:16px">
+        <div class="card-hdr"><h3>📁 所有學習記錄</h3><span style="font-size:12px;color:var(--text-3)">${recs.length} 筆</span></div>
+        <div class="card-body">
+          <div class="rec-list">
+            ${recs.map(r=>`
+            <div class="rec-item">
+              <div class="rec-thumb">${r.emoji}</div>
+              <div class="rec-meta">
+                <h4>${r.title}</h4>
+                <p>${r.desc}</p>
+                <div class="rec-tags">${r.inds.map(i=>`<span class="rtag" style="background:${DOM[i[0]].color}">${i}</span>`).join('')}</div>
+              </div>
+              <div class="rec-time">${r.time}</div>
+            </div>`).join('')}
+            ${recs.length===0?`<p style="color:var(--text-3);font-size:13px;text-align:center;padding:20px">尚未有記錄</p>`:''}
+          </div>
+        </div>
+      </div>`,
+
+      /* Tab 1: 溫馨語錄 */
+      `<div class="card">
+        <div class="card-hdr">
+          <h3>💛 老師的溫馨語錄</h3>
+          <button class="btn-sm btn-outline" onclick="genQuote(${child.id})">✨ AI 輔助生成</button>
+        </div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--text-3);margin-bottom:12px">寫下老師對 ${child.name} 的個人觀察與溫馨話語，將呈現於孩子的學習檔案與家長聯絡本。</p>
+          <textarea class="f-input f-textarea" id="quote-${child.id}" style="min-height:140px;font-size:14px;line-height:1.8" oninput="S.editQuote[${child.id}]=this.value">${quote}</textarea>
+          <div style="display:flex;gap:8px;margin-top:12px;align-items:center">
+            <button class="btn-sm btn-solid" onclick="saveQuote(${child.id})">儲存語錄</button>
+            <button class="btn-sm btn-outline" onclick="copyText('quote-${child.id}')">複製文字</button>
+            <span id="quote-saved-${child.id}" style="font-size:12px;color:var(--success);display:none">✓ 已儲存</span>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px;background:var(--teal-lt);border-color:var(--teal)">
+        <div class="card-body">
+          <p style="font-size:12.5px;color:var(--teal);line-height:1.7">💡 <strong>建議方向：</strong>從孩子讓你印象深刻的一個時刻出發，描述他/她的個性特質、在班上的角色、或你對他/她未來的期許。溫馨語錄讓家長感受到孩子被真正看見。</p>
+        </div>
+      </div>`,
+
+      /* Tab 2: 發展評析 */
+      `<div class="card">
+        <div class="card-hdr">
+          <h3>📊 六大領域發展評析</h3>
+          <button class="btn-sm btn-outline" onclick="genAllAna(${child.id})">✨ AI 全部生成</button>
+        </div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--text-3);margin-bottom:16px">依據幼兒園教保活動課程大綱六大領域，填寫 ${child.name} 的發展觀察與評析。</p>
+          ${Object.keys(DOM).map(d=>{
+            const val=ana[d]!==undefined?ana[d]:prof.ana[d];
+            return `<div style="margin-bottom:18px">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+                <label class="f-label" style="margin:0">${pill(d,d+'・'+DOM[d].name)}</label>
+                <button style="font-size:11px;color:var(--teal);background:none;border:none;cursor:pointer;padding:2px 6px" onclick="genOneAna(${child.id},'${d}')">✨ AI 生成</button>
+              </div>
+              <textarea class="f-input f-textarea" id="ana-${child.id}-${d}" style="min-height:72px;font-size:13px;line-height:1.7" oninput="if(!S.editAna[${child.id}])S.editAna[${child.id}]={};S.editAna[${child.id}]['${d}']=this.value">${val}</textarea>
+            </div>`;
+          }).join('')}
+          <div style="display:flex;gap:8px;margin-top:4px;align-items:center">
+            <button class="btn-sm btn-solid" onclick="saveAna(${child.id})">儲存所有評析</button>
+            <button class="btn-sm btn-outline" onclick="exportReport(${child.id})">匯出完整報告</button>
+            <span id="ana-saved-${child.id}" style="font-size:12px;color:var(--success);display:none">✓ 已儲存</span>
+          </div>
+        </div>
+      </div>`
+    ][S.childTab]||'';
+
     return `
-<button class="btn-back" onclick="S.child=null;render()">← 返回孩子列表</button>
+<button class="btn-back" onclick="S.child=null;S.childTab=0;render()">← 返回孩子列表</button>
 <div class="child-detail-hdr">
   <div class="cd-av" style="background:${child.color}">${child.ch}</div>
   <div>
     <div class="cd-name">${child.name}</div>
-    <div class="cd-sub">共 ${recs.length} 筆記錄・${child.doms.map(d=>DOM[d].name.slice(0,2)).join('、')}</div>
+    <div class="cd-sub">共 ${recs.length} 筆記錄・${child.doms.map(d=>pill(d,d)).join(' ')}</div>
   </div>
   <button class="btn-sm btn-solid" style="margin-left:auto" onclick="startUpload()">＋ 上傳記錄</button>
 </div>
 
-${vUploadZone()}
+<div class="tabs">
+  <button class="tab-btn${S.childTab===0?' active':''}" onclick="S.childTab=0;render()">📁 學習記錄</button>
+  <button class="tab-btn${S.childTab===1?' active':''}" onclick="S.childTab=1;render()">💛 溫馨語錄</button>
+  <button class="tab-btn${S.childTab===2?' active':''}" onclick="S.childTab=2;render()">📊 發展評析</button>
+</div>
 
-<div class="card" style="margin-top:18px">
-  <div class="card-hdr"><h3>📁 ${child.name}的所有記錄</h3></div>
-  <div class="card-body">
-    <div class="rec-list">
-      ${recs.map(r=>`
-      <div class="rec-item">
-        <div class="rec-thumb">${r.emoji}</div>
-        <div class="rec-meta">
-          <h4>${r.title}</h4>
-          <p>${r.desc}</p>
-          <div class="rec-tags">${r.inds.map(i=>`<span class="rtag" style="background:${DOM[i[0]].color}">${i}</span>`).join('')}</div>
-        </div>
-        <div class="rec-time">${r.time}</div>
-      </div>`).join('')}
-      ${recs.length===0?`<p style="color:var(--text-3);font-size:13px;text-align:center;padding:20px">尚未有記錄，請點上方上傳記錄</p>`:''}
-    </div>
-  </div>
-</div>`;
+${tabContent}`;
   }
 
   return `
@@ -1132,6 +1232,208 @@ function genComment(){
 function copyComment(){
   if(!S.genComment){alert('請先點擊「生成評語」');return}
   navigator.clipboard.writeText(S.genComment).then(()=>alert('✅ 評語已複製到剪貼板！'));
+}
+
+/* ── 溫馨語錄 & 發展評析 ─────────────── */
+
+const GEN_QUOTES = [
+  name=>`${name}帶給班上的，不只是歡笑，更是一種溫暖的存在感。每次看見${name}認真投入一件事情的樣子，老師的心裡都充滿感動。希望${name}永遠保有這份純真與好奇，那是你最珍貴的禮物。`,
+  name=>`和${name}相處的每一天，都讓老師看見了不同的驚喜。${name}的善良、努力、和那份獨特的個性，深深印在老師心裡。期待看見你在未來的每個舞台，發光發亮。`,
+  name=>`${name}，你知道嗎？每天早晨看見你走進教室，老師的一天就變得更美好了。你的笑容、你的認真、你對朋友的關心，都是老師最珍惜的記憶。謝謝你，讓老師有幸陪伴你這段成長的旅程。`,
+  name=>`${name}是個讓老師覺得驕傲的孩子，不是因為你表現得最好，而是因為你一直在努力成為更好的自己。老師相信，這份韌性和誠懇，將會是你一生最堅實的力量。`,
+  name=>`陪伴${name}成長的這段時光，對老師來說是一份珍貴的禮物。你讓老師學會了用不同的眼光看待世界，也提醒了老師，每個孩子都有屬於自己的節奏和光芒。帶著你的獨特繼續前行吧，${name}，老師永遠為你加油！`,
+];
+
+const GEN_ANA = {
+  身:[
+    '大肌肉動作發展良好，跑跳協調性佳，喜歡參與戶外活動；精細動作持續進步，建議提供多元操作素材以豐富手部靈活度。',
+    '身體動作靈活有力，平衡感和協調性皆有穩定進步，在體能活動中積極參與；建議持續引導肢體安全意識，並鼓勵嘗試多元運動形式。',
+    '精細動作表現細膩，喜歡剪貼、串珠等需要專注操作的活動；大肌肉動作尚在持續發展中，鼓勵多參與跑跳、攀爬等活動以強化核心肌群。',
+  ],
+  認:[
+    '具備良好的邏輯思考與問題解決能力，能主動探索並提出疑問；空間概念與分類能力佳，建議提供更多挑戰性的探究任務以激發潛能。',
+    '觀察力敏銳，能注意並記憶環境中的細節；數概念發展穩定，喜歡規律性的活動，建議增加開放性問題以拓展思考彈性。',
+    '學習動機強，對新事物充滿好奇，能快速連結舊經驗與新知識；建議提供更多跨領域探索的機會，以培養統整思考的能力。',
+  ],
+  語:[
+    '口語表達清晰流暢，詞彙量豐富，能以完整語句描述想法與感受；閱讀興趣濃厚，建議持續共讀並鼓勵自行翻閱圖書以深化語文理解。',
+    '傾聽理解能力良好，能掌握對話重點並適時回應；主動表達意願持續增強，建議多創造小組分享機會，讓語言表達更自然流暢。',
+    '語言表達具有個人風格，喜歡用比喻和故事描述事物；建議透過繪本創作和角色扮演，進一步豐富語文想像力與敘事能力。',
+  ],
+  社:[
+    '與同儕互動友善，能主動分享並關心他人；社交技巧持續成熟，在合作活動中展現良好的溝通與協調能力，是班上重要的凝聚力量。',
+    '對同伴的需求敏感，樂於協助，具有自然的同理心；建議提供更多多元的合作情境，幫助進一步拓展社交圈與建立信任關係。',
+    '正在逐步建立更廣泛的人際關係，對熟悉的夥伴互動自在；建議透過小組遊戲和共同任務，創造更多與不同同伴合作的自然機會。',
+  ],
+  情:[
+    '情緒覺察能力良好，能辨識並說出自己的感受；在情緒調節上持續進步，建議繼續透過繪本和討論，豐富情緒語彙與調節策略。',
+    '情緒開朗積極，面對困難時能表現出韌性；建議持續提供情緒安全的環境，並在適當時機引導正向的情緒表達方式。',
+    '情感細膩敏感，對環境氛圍的變化有敏銳感知；建議以接納的態度回應情緒，並協助建立穩定的情緒調節模式。',
+  ],
+  美:[
+    '對藝術活動充滿熱情，作品富有個人風格與創意；音樂律動表現積極，建議提供多元媒材和開放的創作時間，以豐富美感探索經驗。',
+    '具有獨特的審美觀察力，能從日常生活中發現美感元素；繪畫和手作作品細膩用心，建議鼓勵自由表達創作想法，不限定形式。',
+    '對自然素材和視覺造型特別有感，作品展現出敏銳的美感直覺；建議提供欣賞不同藝術形式的機會，以開拓美感視野與表達多樣性。',
+  ],
+};
+
+function genQuote(childId){
+  const child=CHILDREN.find(c=>c.id===childId);
+  const ta=document.getElementById(`quote-${childId}`);
+  if(!ta)return;
+  ta.disabled=true;
+  ta.style.opacity='0.5';
+  // show spinner on button
+  const btn=ta.closest('.card').querySelector('button.btn-outline');
+  const orig=btn?btn.textContent:'';
+  if(btn){btn.textContent='⏳ AI 生成中…';btn.disabled=true;}
+  setTimeout(()=>{
+    const pool=GEN_QUOTES;
+    const txt=pool[Math.floor(Math.random()*pool.length)](child.name);
+    ta.value=txt;
+    if(!S.editQuote)S.editQuote={};
+    S.editQuote[childId]=txt;
+    ta.disabled=false;
+    ta.style.opacity='1';
+    if(btn){btn.textContent=orig;btn.disabled=false;}
+    // subtle highlight
+    ta.style.borderColor='var(--teal)';
+    setTimeout(()=>{ta.style.borderColor='';},1800);
+  },1400);
+}
+
+function genOneAna(childId,domain){
+  const ta=document.getElementById(`ana-${childId}-${domain}`);
+  if(!ta)return;
+  ta.disabled=true;
+  ta.style.opacity='0.5';
+  const pool=GEN_ANA[domain]||[];
+  const txt=pool[Math.floor(Math.random()*pool.length)]||'（暫無範例，請老師手動填寫）';
+  setTimeout(()=>{
+    ta.value=txt;
+    if(!S.editAna[childId])S.editAna[childId]={};
+    S.editAna[childId][domain]=txt;
+    ta.disabled=false;
+    ta.style.opacity='1';
+    ta.style.borderColor='var(--teal)';
+    setTimeout(()=>{ta.style.borderColor='';},1800);
+  },900+Math.random()*400);
+}
+
+function genAllAna(childId){
+  const btn=document.querySelector(`button[onclick="genAllAna(${childId})"]`);
+  if(btn){btn.textContent='⏳ AI 生成中…';btn.disabled=true;}
+  const domains=Object.keys(DOM);
+  let done=0;
+  domains.forEach((d,i)=>{
+    setTimeout(()=>{
+      genOneAna(childId,d);
+      done++;
+      if(done===domains.length&&btn){
+        setTimeout(()=>{btn.textContent='✨ AI 全部生成';btn.disabled=false;},600);
+      }
+    },i*320);
+  });
+}
+
+function saveQuote(childId){
+  const ta=document.getElementById(`quote-${childId}`);
+  if(ta){
+    if(!S.editQuote)S.editQuote={};
+    S.editQuote[childId]=ta.value;
+  }
+  const indicator=document.getElementById(`quote-saved-${childId}`);
+  if(indicator){
+    indicator.style.display='inline';
+    setTimeout(()=>{indicator.style.display='none';},2000);
+  }
+}
+
+function saveAna(childId){
+  const domains=Object.keys(DOM);
+  if(!S.editAna[childId])S.editAna[childId]={};
+  domains.forEach(d=>{
+    const ta=document.getElementById(`ana-${childId}-${d}`);
+    if(ta)S.editAna[childId][d]=ta.value;
+  });
+  const indicator=document.getElementById(`ana-saved-${childId}`);
+  if(indicator){
+    indicator.style.display='inline';
+    setTimeout(()=>{indicator.style.display='none';},2000);
+  }
+}
+
+function copyText(elementId){
+  const el=document.getElementById(elementId);
+  if(!el){alert('找不到內容，請先儲存或輸入文字。');return;}
+  const txt=el.value||el.innerText||'';
+  if(!txt.trim()){alert('內容為空，無法複製。');return;}
+  navigator.clipboard.writeText(txt)
+    .then(()=>{
+      // show brief toast instead of alert
+      const toast=document.createElement('div');
+      toast.textContent='✅ 已複製到剪貼板';
+      Object.assign(toast.style,{
+        position:'fixed',bottom:'28px',right:'28px',zIndex:9999,
+        background:'#2C7D6E',color:'#fff',padding:'10px 20px',
+        borderRadius:'8px',fontSize:'14px',boxShadow:'0 4px 16px rgba(0,0,0,.2)',
+        transition:'opacity .3s',opacity:'1',
+      });
+      document.body.appendChild(toast);
+      setTimeout(()=>{toast.style.opacity='0';},1600);
+      setTimeout(()=>{toast.remove();},2000);
+    })
+    .catch(()=>{
+      // fallback for older browsers
+      el.select();
+      document.execCommand('copy');
+      alert('✅ 已複製！');
+    });
+}
+
+function exportReport(childId){
+  const child=CHILDREN.find(c=>c.id===childId);
+  if(!child)return;
+  const prof=PROFILES[childId]||{};
+  const editedQuote=S.editQuote[childId];
+  const quote=editedQuote!==undefined?editedQuote:prof.quote||'（尚未填寫）';
+  const editedAna=S.editAna[childId]||{};
+  const domainLines=Object.keys(DOM).map(d=>{
+    const val=editedAna[d]!==undefined?editedAna[d]:(prof.ana&&prof.ana[d])||'（尚未填寫）';
+    return `【${d}・${DOM[d].name}】\n${val}`;
+  }).join('\n\n');
+
+  const recs=S.recs.filter(r=>r.cid===childId);
+  const recLines=recs.map(r=>`• ${r.time}｜${r.title}：${r.desc}  [${r.inds.join('、')}]`).join('\n');
+
+  const report=`═══════════════════════════════
+幼兒學習發展記錄報告
+幼兒姓名：${child.name}
+匯出日期：${new Date().toLocaleDateString('zh-TW')}
+═══════════════════════════════
+
+▌ 老師的溫馨語錄
+${quote}
+
+═══════════════════════════════
+▌ 六大領域發展評析
+${domainLines}
+
+═══════════════════════════════
+▌ 學習記錄摘要（共 ${recs.length} 筆）
+${recLines||'尚無學習記錄'}
+
+═══════════════════════════════
+※ 本報告依據幼兒園教保活動課程大綱（2016）六大領域指標生成。
+`;
+
+  // trigger download as .txt
+  const blob=new Blob([report],{type:'text/plain;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=`${child.name}_學習發展報告.txt`;
+  document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(url);a.remove();},1000);
 }
 
 /* ── INIT ────────────────────────────── */
